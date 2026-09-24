@@ -23,7 +23,7 @@ const Hamburger = () => {
                     <div className="flex flex-col p-4">
 
                         <Link
-                            href="/workouts"
+                            href="/#library"
                             onClick={() => setIsOpen(false)}
                             className="rounded-lg px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white"
                         >
@@ -39,7 +39,7 @@ const Hamburger = () => {
                         </Link>
 
                         <Link
-                            href="/plan"
+                            href="/my-plan"
                             onClick={() => setIsOpen(false)}
                             className="rounded-lg px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white"
                         >
@@ -47,7 +47,7 @@ const Hamburger = () => {
                         </Link>
 
                         <Link
-                            href="/saved"
+                            href="/my-plan?tab=saved"
                             onClick={() => setIsOpen(false)}
                             className="rounded-lg px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white"
                         >

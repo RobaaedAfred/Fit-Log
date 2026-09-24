@@ -1,7 +1,7 @@
 import Image from "next/image";
-import React from "react";
 import { Oswald } from "next/font/google";
 import banner from "@/assets/banner.png";
+import Link from "next/link";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -31,12 +31,12 @@ const Hero = () => {
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
 
-          <button
-            type="button"
+          <Link
+            href="#library"
             className="mt-7 rounded-md bg-[#C2F800] px-7 py-3.5 text-sm font-bold uppercase text-black transition hover:bg-[#d0ff33]"
           >
             Browse Workouts
-          </button>
+          </Link>
         </div>
         <div className="shrink-0">
           <Image

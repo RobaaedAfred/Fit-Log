@@ -1,8 +1,7 @@
 "use client";
 
 import { Iexer } from "@/app/types/eType";
-import { useExercise } from "@/app/contex/ExerciseContext";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 
 interface ExCardProps {
@@ -10,17 +9,9 @@ interface ExCardProps {
 }
 
 const ExCard = ({ exercise }: ExCardProps) => {
-  const { setSelectedExercise } = useExercise();
-  const router = useRouter();
-
-  const handleClick = () => {
-    setSelectedExercise(exercise);
-    router.push(`/workouts/${exercise.id}`);
-  };
-
   return (
-    <article
-      onClick={handleClick}
+    <Link
+      href={`/workouts/${exercise.id}`}
       className="group cursor-pointer overflow-hidden rounded-xl border border-slate-800 bg-[#15171c] transition-all duration-300 hover:-translate-y-1 hover:border-[#c2f800]"
     >
 
@@ -28,6 +19,9 @@ const ExCard = ({ exercise }: ExCardProps) => {
         <Image
           src={exercise.image}
           alt={exercise.name}
+          width={640}
+          height={360}
+          unoptimized
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
         />
       </div>
@@ -66,7 +60,7 @@ const ExCard = ({ exercise }: ExCardProps) => {
           <span>☆ {exercise.rating}</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 };
 
