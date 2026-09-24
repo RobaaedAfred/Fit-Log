@@ -1,16 +1,18 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
 import Hero from './components/Hero';
+import ExCard from './components/ExCard';
+import ExerciseLibrary from './components/ExerciseLibrary';
 
 const page = () => {
   return (
     <div>
-      <Navbar />
+  
       <Hero />
-      <Footer />
+       <ExerciseLibrary />
+  
     </div>
-  );
+  )
 };
 
 export default page;
