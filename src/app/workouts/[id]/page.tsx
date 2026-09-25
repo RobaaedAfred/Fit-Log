@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useExercise } from "@/app/contex/ExerciseContext";
 import { Iexer } from "@/app/types/eType";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ExerciseDetailPage = () => {
@@ -82,7 +83,7 @@ const ExerciseDetailPage = () => {
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <button onClick={() => addToPlan(exercise)} className="rounded-lg bg-[#c2f800] px-5 py-3 text-sm font-bold text-black"><FontAwesomeIcon icon={faCalendarDays} /> Add to today&apos;s plan</button>
-              <button onClick={() => saveForLater(exercise)} className="rounded-lg border border-slate-700 px-5 py-3 text-sm text-white hover:border-[#c2f800]">♡ Save for later</button>
+              <button onClick={() => saveForLater(exercise)} className="rounded-lg border border-slate-700 px-5 py-3 text-sm text-white hover:border-[#c2f800]"><FontAwesomeIcon icon={faBookmark} /> Save for later</button>
             </div>
           </div>
         </div>
