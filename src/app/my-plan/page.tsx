@@ -17,7 +17,7 @@ const WorkoutRow = ({ exercise, saved, onRemove, onDone }: { exercise: Iexer; sa
       <div className="mt-2 flex gap-3 text-xs text-gray-400"><span>◷ {exercise.duration} min</span><span>● {exercise.caloriesBurned} kcal</span><span>☆ {exercise.rating}</span></div>
     </div>
     <div className="flex items-center gap-2">
-      <Link href={`/workouts/${exercise.id}`} className="rounded-full border border-slate-700 px-4 py-2 text-xs text-white hover:border-[#c2f800]">View Details</Link>
+      <Link href={`/workouts/${exercise.id}`} className="rounded-full border border-slate-700 px-4 py-2 text-xs text-white">View Details</Link>
       {!saved && <button onClick={onDone} className="rounded-full bg-[#c2f800] px-4 py-2 text-xs font-bold text-black">✓ Mark as Done</button>}
       <button aria-label={`Remove ${exercise.name}`} onClick={onRemove} className="px-2 text-gray-500 hover:text-red-400">×</button>
     </div>
