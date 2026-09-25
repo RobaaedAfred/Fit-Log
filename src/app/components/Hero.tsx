@@ -31,12 +31,12 @@ const Hero = () => {
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
 
-          <Link
+          <a
             href="#library"
             className="mt-7 inline-block rounded-md bg-[#C2F800] px-7 py-3.5 text-sm font-bold uppercase text-black transition hover:bg-[#d0ff33]"
           >
             Browse Workouts
-          </Link>
+          </a>
         </div>
         <div className="shrink-0">
           <Image
