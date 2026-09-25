@@ -32,7 +32,7 @@ const PlanContent = () => {
   const items = useMemo(() => [...activeItems].sort((a, b) => sort === "calories" ? b.caloriesBurned - a.caloriesBurned : sort === "rating" ? b.rating - a.rating : a.duration - b.duration), [activeItems, sort]);
   const minutes = plan.reduce((total, item) => total + item.duration, 0);
   const calories = plan.reduce((total, item) => total + item.caloriesBurned, 0);
-
+  
   return (
     <main className="min-h-[calc(100vh-128px)] bg-[#0e1014] px-4 py-8">
       <div className="mx-auto max-w-6xl">

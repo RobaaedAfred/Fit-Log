@@ -51,7 +51,25 @@ export const ExerciseProvider = ({ children }: { children: ReactNode }) => {
     };
     void getExercises();
   }, []);
+  useEffect(() => {
+    const storedPlan = window.localStorage.getItem("fitlog-plan");
+    const storedSaved = window.localStorage.getItem("fitlog-saved");
+    window.setTimeout(() => {
+      if (storedPlan) setPlan(JSON.parse(storedPlan));
+      if (storedSaved) setSaved(JSON.parse(storedSaved));
+      setStorageReady(true);
+    }, 0);
+  }, []);
 
+  useEffect(() => {
+    if (!storageReady) return;
+    window.localStorage.setItem("fitlog-plan", JSON.stringify(plan));
+  }, [plan, storageReady]);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    window.localStorage.setItem("fitlog-saved", JSON.stringify(saved));
+  }, [saved, storageReady]);
 
   const addToPlan = (exercise: Iexer) => {
     if (plan.some((item) => item.id === exercise.id)) {
