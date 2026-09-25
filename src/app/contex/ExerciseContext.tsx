@@ -1,14 +1,11 @@
 "use client";
 
 import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
+  createContext, useContext, useEffect, useState, type ReactNode,
 } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Bounce } from "react-toastify";
 
 import { Iexer } from "@/app/types/eType";
 
@@ -73,39 +70,124 @@ export const ExerciseProvider = ({ children }: { children: ReactNode }) => {
 
   const addToPlan = (exercise: Iexer) => {
     if (plan.some((item) => item.id === exercise.id)) {
-      toast.info("This workout is already in today's plan.");
+
+      toast.info("This workout is already in today's plan.!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+
       return;
     }
     if (plan.length >= 5) {
-      toast.error("Today's plan can contain up to five lifts.");
+
+      toast.error("Today's plan can contain up to five lifts.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+
       return;
     }
     setPlan((current) => [...current, exercise]);
-    toast.success("Added to today's plan.");
+    toast.success("Added to today's plan.", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   const saveForLater = (exercise: Iexer) => {
     if (saved.some((item) => item.id === exercise.id)) {
-      toast.info("This workout is already saved.");
+      toast.info('This workout is already saved.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       return;
     }
     setSaved((current) => [...current, exercise]);
-    toast.success("Saved for later.");
+    toast.success("");
+    toast.success("Saved for later.", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   const removeFromPlan = (id: number) => {
     setPlan((current) => current.filter((item) => item.id !== id));
-    toast.success("Removed from today's plan.");
+    toast.error("Removed from today's plan", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   const removeFromSaved = (id: number) => {
     setSaved((current) => current.filter((item) => item.id !== id));
-    toast.success("Removed from saved workouts.");
+    toast.error("Removed from saved workouts", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   const markAsDone = (id: number) => {
     setPlan((current) => current.filter((item) => item.id !== id));
-    toast.success("Workout marked as done.");
+    toast.success('Workout marked as done.', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   const value = {
