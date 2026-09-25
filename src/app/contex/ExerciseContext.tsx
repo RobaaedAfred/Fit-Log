@@ -131,7 +131,6 @@ export const ExerciseProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
     setSaved((current) => [...current, exercise]);
-    toast.success("");
     toast.success("Saved for later.", {
       position: "top-center",
       autoClose: 5000,
