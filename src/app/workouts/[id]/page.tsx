@@ -54,17 +54,40 @@ const ExerciseDetailPage = () => {
       </main>
     );
   }
-return (
-    <main className="h-[calc(100vh-72px)] overflow-hidden bg-[#0e1014] px-4 py-6">
-      <div className="mx-auto h-full max-w-7xl">
-        <div className="grid h-full overflow-hidden rounded-xl bg-[#0f1116] lg:grid-cols-2">
-          <div className="h-full rounded-2xl">
-            <Image src={exercise.image} alt={exercise.name} width={800} height={800} unoptimized className="h-full w-full object-cover" />
+
+  return (
+    <main className="min-h-[calc(100vh-72px)] bg-[#0e1014] px-4 py-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid overflow-hidden rounded-xl bg-[#0f1116] lg:grid-cols-2">
+
+          <div className="h-64 sm:h-80 lg:h-full">
+            <Image
+              src={exercise.image}
+              alt={exercise.name}
+              width={800}
+              height={800}
+              unoptimized
+              className="h-full w-full object-cover"
+            />
           </div>
-          <div className="flex h-full flex-col overflow-hidden p-6 lg:p-10">
-            <h1 className="text-3xl font-black uppercase text-white lg:text-5xl">{exercise.name}</h1>
-            <p className="mt-3 leading-6 text-gray-400">{exercise.description}</p>
-            <div className="mt-4 flex flex-wrap gap-2">{exercise.muscleGroups.map((muscle) => <span key={muscle} className="rounded-full bg-[#c2f800] px-3 py-1 text-xs font-bold uppercase text-black">{muscle}</span>)}</div>
+
+          <div className="flex flex-col p-6 lg:p-10">
+            <h1 className="text-3xl font-black uppercase text-white sm:text-4xl lg:text-5xl">
+              {exercise.name}
+            </h1>
+            <p className="mt-3 leading-6 text-gray-400">
+              {exercise.description}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {exercise.muscleGroups.map((muscle) => (
+                <span
+                  key={muscle}
+                  className="rounded-full bg-[#c2f800] px-3 py-1 text-xs font-bold uppercase text-black"
+                >
+                  {muscle}
+                </span>
+              ))}
+            </div>
             <div className="mt-5 overflow-hidden rounded-xl border border-slate-800">
               {[
                 ["Equipment", exercise.equipment],
@@ -74,21 +97,73 @@ return (
                 ["Duration", `${exercise.duration} min`],
                 ["Calories", `${exercise.caloriesBurned} kcal`],
                 ["Rating", `★ ${exercise.rating}`],
-              ].map(([label, value], index) => <div key={label} className={`flex justify-between p-2.5 ${index < 6 ? "border-b border-slate-800" : ""}`}><span className="text-xs font-bold uppercase text-gray-500">{label}</span><span className="text-sm text-white">{value}</span></div>)}
+              ].map(([label, value], index) => (
+                <div
+                  key={label}
+                  className={`flex justify-between p-2.5 ${index < 6 ? "border-b border-slate-800" : ""
+                    }`}
+                >
+                  <span className="text-xs font-bold uppercase text-gray-500">
+                    {label}
+                  </span>
+
+                  <span className="text-sm text-white">
+                    {value}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div className="mt-5 min-h-0 flex-1 overflow-y-auto">
-              <h2 className="text-lg font-bold uppercase text-white">Instructions</h2>
-              <ol className="mt-3 space-y-2">{exercise.instructions.map((instruction, index) => <li key={instruction} className="flex gap-3 text-sm leading-6 text-gray-400"><span className="font-bold text-[#c2f800]">{index + 1}.</span><span>{instruction}</span></li>)}</ol>
+
+            <div className="mt-5">
+              <h2 className="text-lg font-bold uppercase text-white">
+                Instructions
+              </h2>
+
+              <ol className="mt-3 space-y-2">
+                {exercise.instructions.map((instruction, index) => (
+                  <li
+                    key={instruction}
+                    className="flex gap-3 text-sm leading-6 text-gray-400"
+                  >
+                    <span className="font-bold text-[#c2f800]">
+                      {index + 1}.
+                    </span>
+
+                    <span>{instruction}</span>
+                  </li>
+                ))}
+              </ol>
             </div>
-            <div className="mt-5 flex flex-shrink-0 flex-wrap gap-3">
-              <button onClick={() => addToPlan(exercise)} className="rounded-lg bg-[#c2f800] px-5 py-3 text-sm font-bold text-black"><FontAwesomeIcon icon={faCalendarDays} /> Add to today&apos;s plan</button>
-              <button onClick={() => saveForLater(exercise)} className="rounded-lg border border-slate-700 px-5 py-3 text-sm text-white hover:border-[#c2f800]"><FontAwesomeIcon icon={faBookmark} /> Save for later</button>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <button
+                onClick={() => addToPlan(exercise)}
+                className="rounded-lg bg-[#c2f800] px-5 py-3 text-sm font-bold text-black"
+              >
+                <FontAwesomeIcon icon={faCalendarDays} />
+                <span className="ml-2">
+                  Add to today's plan
+                </span>
+              </button>
+
+              <button
+                onClick={() => saveForLater(exercise)}
+                className="rounded-lg border border-slate-700 px-5 py-3 text-sm text-white hover:border-[#c2f800]"
+              >
+                <FontAwesomeIcon icon={faBookmark} />
+                <span className="ml-2">
+                  Save for later
+                </span>
+              </button>
             </div>
+
           </div>
         </div>
       </div>
     </main>
   );
+
 };
 
 export default ExerciseDetailPage;
+
+
