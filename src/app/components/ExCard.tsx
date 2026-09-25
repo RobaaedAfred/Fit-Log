@@ -12,7 +12,7 @@ const ExCard = ({ exercise }: ExCardProps) => {
   return (
     <Link
       href={`/workouts/${exercise.id}`}
-      className="group cursor-pointer overflow-hidden rounded-xl border border-slate-800 bg-[#15171c] transition-all duration-300 hover:-translate-y-1 hover:border-[#c2f800]"
+      className="group cursor-pointer overflow-hidden rounded-xl border border-slate-800 bg-[#15171c] transition-all duration-300 "
     >
 
       <div className="relative h-48 overflow-hidden">
@@ -22,7 +22,7 @@ const ExCard = ({ exercise }: ExCardProps) => {
           width={640}
           height={360}
           unoptimized
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover "
         />
       </div>
 
