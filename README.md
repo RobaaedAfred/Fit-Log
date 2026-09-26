@@ -41,7 +41,7 @@ The main goal of FitLog is to create a practical fitness management application 
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/RobaaedAfred/Fit-Log
 ```
 
 Navigate to the project directory:
@@ -61,6 +61,7 @@ Start the development server:
 ```bash
 npm run dev
 ```
+**Live Link**:https://fit-log-azure-five.vercel.app/
 
 ## 👨‍💻 Developer
 
